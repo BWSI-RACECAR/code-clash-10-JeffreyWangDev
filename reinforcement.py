@@ -50,7 +50,7 @@ class Solution:
         enda = {}
         if num_players == 2:
             for i in range(num_actions):
-                for j in range(num_players):
+                for j in range(num_players+1):
                     enda[count] = (j,i)
                     enda[(j,i)] = count
                     count = count+1
