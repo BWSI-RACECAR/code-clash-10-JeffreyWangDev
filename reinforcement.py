@@ -49,8 +49,8 @@ class Solution:
         count = 0
         enda = {}
         if num_players == 2:
-            for i in range(num_actions):
-                for j in range(num_players+1):
+            for i in range(num_actions-1):
+                for j in range(num_players):
                     enda[count] = (j,i)
                     enda[(j,i)] = count
                     count = count+1
