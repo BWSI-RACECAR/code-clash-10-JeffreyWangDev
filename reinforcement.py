@@ -52,7 +52,16 @@ class Solution:
             for i in range(num_actions):
                 for j in range(num_players+1):
                     enda[count] = (i,j)
+                    enda[(i,j)] = count
                     count = count+1
+        elif num_players == 3:
+            for i in range(num_actions):
+                for j in range(num_players-1):
+                    for k in range(num_players-1):
+                        enda[count] = (i,j,k)
+                        enda[(i,j,k)] = count
+                        count = count+1
+
         return enda
 def main():
     input1 = input()
