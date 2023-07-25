@@ -46,22 +46,12 @@ Input: 3, 2 Output: {0: (0, 0, 0), (0, 0, 0): 0, 1: (1, 0, 0), (1, 0, 0): 1, 2: 
 
 class Solution:
     def create_action_dict(self, num_players, num_actions):
-        count = 0
         enda = {}
-        if num_players == 2:
-            for i in range(num_actions-1):
-                for j in range(num_players):
-                    enda[count] = (j,i)
-                    enda[(j,i)] = count
-                    count = count+1
-        elif num_players == 3:
-            for i in range(num_actions):
-                for j in range(num_players-1):
-                    for k in range(num_players-1):
-                        enda[count] = (k,j,i)
-                        enda[(k,j,i)] = count
-                        count = count+1
-
+        for i in range(num_actions**num_players):
+            enda[i] = ()
+            for j in range(num_players):
+                enda[i] += (i//(num_actions**j)%num_actions,)
+            enda[enda[i]] = i
         return enda
 def main():
     input1 = input()
